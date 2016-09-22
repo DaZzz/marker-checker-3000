@@ -1,5 +1,39 @@
-.duck {
+@import 'src/styles/colors';
+
+.container {
+  height: 100%;
   display: block;
-  width: 120px;
-  margin: 1.5rem auto;
+  padding: 32px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: $yellow-500;
+  text-shadow: 2px 2px 0 #604C19;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.caption {
+  font-size: 16px;
+  color: $blue-500;
+  text-align: center;
+}
+
+.grid {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.buttonBlock {
+  padding: 12px;
+  text-align: center;
 }

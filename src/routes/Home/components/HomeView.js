@@ -1,14 +1,18 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
+import Grid from 'components/Grid'
+import CheckButton from 'components/CheckButton'
 import classes from './HomeView.scss'
 
 export const HomeView = () => (
-  <div>
-    <h4>Welcome!</h4>
-    <img
-      alt='This is a duck, because Redux!'
-      className={classes.duck}
-      src={DuckImage} />
+  <div className={classes.container}>
+    <div className={classes.title}>Marker checker 3000</div>
+    <div className={classes.caption}>Place markers on their positions and press check to get the answer!</div>
+    <div className={classes.grid}>
+      <Grid />
+    </div>
+    <div className={classes.buttonBlock}>
+      <CheckButton />
+    </div>
   </div>
 )
 
