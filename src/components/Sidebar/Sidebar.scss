@@ -17,15 +17,17 @@
   padding: 32px 32px 32px 64px;
 }
 
-.marker {
+.markerPlaceholder {
   display: flex;
-  width: 51px;
-  height: 51px;
-  background: $yellow-500;
-  border-radius: 30px;
+  width: 48px;
+  height: 48px;
   justify-content: center;
   align-items: center;
-  color: rgba(0,0,0,.5);
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08), inset 0px 1px 1px 0px rgba(255,255,255,0.98);
-  font-size: 18px;
+}
+
+.markerInner {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: rgba(#000, .2);
 }

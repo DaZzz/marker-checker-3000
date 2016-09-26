@@ -43,7 +43,7 @@ const initialState = [{
 // ---
 export default handleActions({
   PLACE_MARKER: (state, action) => state.map((marker) => {
-    return marker.id === action.payload.io
+    return marker.id === action.payload.id
       ? { ...marker, x: action.payload.x, y: action.payload.y }
       : marker
   })

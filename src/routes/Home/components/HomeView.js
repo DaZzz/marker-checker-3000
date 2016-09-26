@@ -7,30 +7,18 @@ import classes from './HomeView.scss'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 
-// export const HomeView = () => (
-//   <div className={classes.container}>
-//     <div className={classes.title}>Marker checker 3000</div>
-//     <div className={classes.caption}>Place markers on their positions and press check to get the answer!</div>
-//     <div className={classes.grid}>
-//       <Grid />
-//     </div>
-//     <div className={classes.buttonBlock}>
-//       <CheckButton />
-//     </div>
-//   </div>
-// )
-
 // ---
 // Component
 // ---
 class HomeView extends React.Component {
 
-  handlePlaceSiderbarMarker () {
-
+  handlePlaceSiderbarMarker (id) {
+    this.props.actions.placeMarker({id, x: null, y: null})
   }
 
-  handlePlaceGridMarker () {
-
+  handlePlaceGridMarker (args) {
+    const { id, x, y } = args
+    this.props.actions.placeMarker({id, x, y})
   }
 
   render () {
@@ -44,7 +32,7 @@ class HomeView extends React.Component {
         <div className={classes.title}>Marker checker 3000</div>
         <div className={classes.caption}>Place markers on their positions and press check to get the answer!</div>
         <div className={classes.grid}>
-          <Grid markers={gridMarkers} onPlaceMarker={this.handlePlaceSiderbarMarker.bind(this)}/>
+          <Grid markers={gridMarkers} onPlaceMarker={this.handlePlaceGridMarker.bind(this)}/>
         </div>
         <div className={classes.buttonBlock}>
           <CheckButton isDisabled={gridMarkers.length === 0}/>
