@@ -6,7 +6,6 @@ import { combineReducers } from 'redux'
 // ---
 export const validate = () => {
   return (dispatch, getState) => {
-    console.log(getState().home.markers)
     const isValid = getState().home.markers.every(m => m.x === m.expectedX && m.y === m.expectedY)
 
     dispatch(showValidation(isValid))
