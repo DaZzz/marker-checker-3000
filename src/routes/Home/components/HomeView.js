@@ -13,16 +13,22 @@ import HTML5Backend from 'react-dnd-html5-backend'
 // ---
 class HomeView extends React.Component {
 
-  handlePlaceSiderbarMarker (id) {
+  static propTypes = {
+    actions: React.PropTypes.object,
+    markers: React.PropTypes.array,
+    validation: React.PropTypes.object
+  }
+
+  handlePlaceSiderbarMarker = (id) => {
     this.props.actions.placeMarker({id, x: null, y: null})
   }
 
-  handlePlaceGridMarker (args) {
+  handlePlaceGridMarker = (args) => {
     const { id, x, y } = args
     this.props.actions.placeMarker({id, x, y})
   }
 
-  handleCheck () {
+  handleCheck = () => {
     this.props.actions.validate()
   }
 
@@ -32,18 +38,18 @@ class HomeView extends React.Component {
 
     return (
       <div className={classes.container}>
-        <Sidebar markers={markers} onPlaceMarker={this.handlePlaceSiderbarMarker.bind(this)}/>
+        <Sidebar markers={markers} onPlaceMarker={this.handlePlaceSiderbarMarker} />
 
         <div className={classes.title}>Marker checker 3000</div>
         <div className={classes.caption}>Place markers on their positions and press check to get the answer!</div>
         <div className={classes.grid}>
-          <Grid markers={gridMarkers} onPlaceMarker={this.handlePlaceGridMarker.bind(this)}/>
+          <Grid markers={gridMarkers} onPlaceMarker={this.handlePlaceGridMarker} />
         </div>
         <div className={classes.buttonBlock}>
-          <CheckButton isDisabled={gridMarkers.length !== markers.length} onClick={this.handleCheck.bind(this)}/>
+          <CheckButton isDisabled={gridMarkers.length !== markers.length} onClick={this.handleCheck} />
         </div>
 
-        <Splash isShown={validation.isShown} isValid={validation.isValid}/>
+        <Splash isShown={validation.isShown} isValid={validation.isValid} />
       </div>
     )
   }

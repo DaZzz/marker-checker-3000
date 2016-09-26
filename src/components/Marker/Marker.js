@@ -17,15 +17,15 @@ const markerSource = {
 // Component
 // ---
 class Marker extends React.Component {
-
   static propTypes = {
     id: React.PropTypes.number.isRequired,
     x: React.PropTypes.number.isRequired,
-    y: React.PropTypes.number.isRequired
+    y: React.PropTypes.number.isRequired,
+    connectDragSource: React.PropTypes.func
   }
 
   render () {
-    const { x, y, isPlaced, connectDragSource} = this.props
+    const { x, y, connectDragSource } = this.props
 
     return connectDragSource(
       <div className={classes.marker}>

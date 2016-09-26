@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import classes from './Grid.scss'
-import { DropTarget } from 'react-dnd'
 import * as d3 from 'd3'
 import Cell from '../Cell'
 
@@ -9,9 +8,9 @@ import Cell from '../Cell'
 // Component
 // ---
 class Grid extends React.Component {
-
   static propTypes = {
-    onPlaceMarker: React.PropTypes.func.isRequired
+    onPlaceMarker: React.PropTypes.func.isRequired,
+    markers: React.PropTypes.array
   };
 
   componentDidMount () {
@@ -64,7 +63,6 @@ class Grid extends React.Component {
   }
 
   render () {
-    const { markers } = this.props
     return (
       <div className={classes.container}>
         <div className={classes.svg} ref='container'></div>
@@ -89,7 +87,6 @@ class Grid extends React.Component {
         marker={marker.length > 0 ? marker[0] : null}
       />
     )
-
   }
 }
 

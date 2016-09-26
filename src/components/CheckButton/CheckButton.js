@@ -8,4 +8,9 @@ export const CheckButton = (props) => (
   </div>
 )
 
+CheckButton.propTypes = {
+  isDisabled: React.PropTypes.bool,
+  onClick: React.PropTypes.func
+}
+
 export default CheckButton

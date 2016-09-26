@@ -14,7 +14,7 @@ class Splash extends React.Component {
     return (
       <div className={isShown ? classes.shown : classes.hidden}>
         <div className={isValid ? classes.correct : classes.incorrect}>
-          { isValid ? 'Correct! You are awesome!' : 'Error! Try again!' }
+          {isValid ? 'Correct! You are awesome!' : 'Error! Try again!'}
         </div>
       </div>
     )

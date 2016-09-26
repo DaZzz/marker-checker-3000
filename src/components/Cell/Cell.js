@@ -23,7 +23,7 @@ class Cell extends React.Component {
     connectDropTarget: React.PropTypes.func.isRequired,
     x: React.PropTypes.number.isRequired,
     y: React.PropTypes.number.isRequired,
-    marker: React.PropTypes.element,
+    marker: React.PropTypes.object,
     onPlaceMarker: React.PropTypes.func.isRequired
   }
 
