@@ -5,7 +5,8 @@ import HomeView from '../components/HomeView'
 
 // State to props
 const mapStateToProps = (state) => ({
-  markers: state.home
+  markers: state.home.markers,
+  validation: state.home.validation
 })
 
 // Dispatch to props

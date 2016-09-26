@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from 'components/Sidebar'
 import Grid from 'components/Grid'
+import Splash from 'components/Splash'
 import CheckButton from 'components/CheckButton'
 import classes from './HomeView.scss'
 
@@ -21,8 +22,12 @@ class HomeView extends React.Component {
     this.props.actions.placeMarker({id, x, y})
   }
 
+  handleCheck () {
+    this.props.actions.validate()
+  }
+
   render () {
-    const { markers } = this.props
+    const { markers, validation } = this.props
     const gridMarkers = markers.filter(m => m.x !== null || m.y !== null)
 
     return (
@@ -35,8 +40,10 @@ class HomeView extends React.Component {
           <Grid markers={gridMarkers} onPlaceMarker={this.handlePlaceGridMarker.bind(this)}/>
         </div>
         <div className={classes.buttonBlock}>
-          <CheckButton isDisabled={gridMarkers.length !== markers.length} />
+          <CheckButton isDisabled={gridMarkers.length !== markers.length} onClick={this.handleCheck.bind(this)}/>
         </div>
+
+        <Splash isShown={validation.isShown} isValid={validation.isValid}/>
       </div>
     )
   }

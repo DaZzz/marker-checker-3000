@@ -20,7 +20,6 @@ class Marker extends React.Component {
 
   static propTypes = {
     id: React.PropTypes.number.isRequired,
-    isPlaced: React.PropTypes.bool.isRequired,
     x: React.PropTypes.number.isRequired,
     y: React.PropTypes.number.isRequired
   }
@@ -29,7 +28,7 @@ class Marker extends React.Component {
     const { x, y, isPlaced, connectDragSource} = this.props
 
     return connectDragSource(
-      <div className={isPlaced ? classes.markerPlaced : classes.marker}>
+      <div className={classes.marker}>
         {x}, {y}
       </div>
     )
