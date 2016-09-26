@@ -35,7 +35,7 @@ class HomeView extends React.Component {
           <Grid markers={gridMarkers} onPlaceMarker={this.handlePlaceGridMarker.bind(this)}/>
         </div>
         <div className={classes.buttonBlock}>
-          <CheckButton isDisabled={gridMarkers.length === 0}/>
+          <CheckButton isDisabled={gridMarkers.length !== markers.length} />
         </div>
       </div>
     )

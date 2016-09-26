@@ -2,6 +2,16 @@
 
 .wrapper {
   display: inline-block;
+
+  .button {
+    box-shadow: 0 10px 20px -10px rgba($yellow-1000, 0.4);
+  }
+}
+
+.wrapperDisabled {
+  display: inline-block;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .tooltip {
@@ -9,7 +19,7 @@
 }
 
 .button {
-  appearence: none;
+  appearance: none;
   font-size: 22px;
   padding: 12px;
   min-width: 220px;
@@ -17,4 +27,13 @@
   border: none;
   background: $yellow-500;
   color: rgba(0,0,0,.7);
+  outline: none;
+
+  &:hover {
+    background-color: $yellow-700;
+  }
+
+  &:active {
+    transform: translate(0, 2px);
+  }
 }
