@@ -1,5 +1,4 @@
 import React from 'react'
-import Sidebar from '../../components/Sidebar'
 import classes from './CoreLayout.scss'
 import '../../styles/core.scss'
 

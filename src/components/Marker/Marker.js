@@ -8,9 +8,7 @@ import { DragSource } from 'react-dnd'
 const markerSource = {
 
   beginDrag (props) {
-    return {lol: 'lol'}
-    // const { id, left, top } = props
-    // return { id, left, top }
+    return {x: props.x, y: props.y}
   }
 
 }
@@ -20,18 +18,19 @@ const markerSource = {
 // ---
 class Marker extends React.Component {
 
-  // static propTypes = {
-  //   isDragging: React.PropTypes.bool
-  // }
+  static propTypes = {
+    // isDragging: React.PropTypes.bool
+    isPlaced: React.PropTypes.bool.isRequired,
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }
 
   render () {
-    // let id = this.props.id
-    let isDragging = this.props.isDragging
-    let connectDragSource = this.props.connectDragSource
+    const { x, y, isPlaced, connectDragSource} = this.props
 
     return connectDragSource(
-      <div className={classes.marker}>
-        1, 2
+      <div className={isPlaced ? classes.markerPlaced : classes.marker}>
+        {x}, {y}
       </div>
     )
   }

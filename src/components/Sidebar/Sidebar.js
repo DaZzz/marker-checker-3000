@@ -30,13 +30,23 @@ import HTML5Backend from 'react-dnd-html5-backend'
 
 class Sidebar extends React.Component {
 
+  static propTypes = {
+    markers: React.PropTypes.array.isRequired
+  }
+
   render () {
     return (
       <div className={classes.sidebar}>
-        <Marker />
-        <Marker />
-        <Marker />
-        <Marker />
+        {
+          this.props.markers.map(m => (
+            <Marker
+              key={m.id}
+              x={m.expectedX}
+              y={m.expectedY}
+              isPlaced={m.x !== null && m.y !== null}
+            />
+          ))
+        }
       </div>
     )
   }
